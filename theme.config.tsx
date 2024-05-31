@@ -26,7 +26,21 @@ const config: DocsThemeConfig = {
       </svg>
     )
   },
+  primaryHue: 98,
+  primarySaturation: 100,
   docsRepositoryBase: 'https://github.com/mazipan/bookmarks',
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s – 📍 The Bookmarks',
+    }
+  },
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="/favicon/favicon-16x16.png" sizes="16x16" />
+      <link rel="icon" href="/favicon/favicon-32x32.png" sizes="32x32" />
+    </>
+  ),
   footer: {
     component: (
       <div className='nx-mx-auto nx-flex nx-h-[var(--nextra-navbar-height)] nx-max-w-[90rem] nx-items-center nx-justify-center nx-gap-1 nx-pl-[max(env(safe-area-inset-left),1.5rem)] nx-pr-[max(env(safe-area-inset-right),1.5rem)] nx-border-t'>
@@ -35,11 +49,6 @@ const config: DocsThemeConfig = {
         <span>, since 2024</span>
       </div>)
   },
-  useNextSeoProps() {
-    return {
-      titleTemplate: '%s – mazipan.space'
-    }
-  }
 }
 
 export default config
