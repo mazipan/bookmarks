@@ -1,0 +1,137 @@
+# Web Storage Helper
+
+Class-based helper to interact with `localStorage` and `sessionStorage` in a more structured way.
+
+- Non-reactive for React, but can be used in React components.
+- Can be used in any JavaScript/TypeScript project.
+- Support for both `localStorage` and `sessionStorage`.
+- Support for default values.
+- Handle unexpected exceptions when the Browser can not use `localStorage` or `sessionStorage`.
+
+## Sample Usage
+
+```typescript copy filename="getDeviceId.tsx"
+import { nanoid } from 'nanoid'
+
+export function getDeviceId() {
+  const webStorage = new WebStorage<string>('__deviceId', '')
+  const savedUid = webStorage.getValue()
+
+  if (!savedUid) {
+    const newId = nanoid()
+    webStorage.setValue(newId)
+    return newId
+  } else {
+    return savedUid
+  }
+}
+```
+
+## Implementation Detail
+
+```typescript copy filename="WebStorage.tsx"
+class WebStorage<ValueType> {
+  _storageKey: string = ''
+  _defaultVal: ValueType | null = null
+  _storageProvider: 'local' | 'session' = 'local'
+
+  constructor(
+    storageKey: string,
+    defaultVal?: ValueType,
+    storageProvider?: 'local' | 'session'
+  ) {
+    this._storageKey = storageKey
+
+    if (typeof defaultVal !== 'undefined') {
+      this._defaultVal = defaultVal
+    }
+
+    if (typeof storageProvider !== 'undefined') {
+      this._storageProvider = storageProvider
+    }
+  }
+
+  getKey(): string {
+    return this._storageKey
+  }
+
+  getDefaultValue(): ValueType | null {
+    return this._defaultVal
+  }
+
+  getStorageProvider() {
+    if (this._storageProvider === 'session') {
+      return window.sessionStorage
+    }
+
+    return window.localStorage
+  }
+
+  isSupported(): boolean {
+    try {
+      if (typeof window !== 'undefined') {
+        const provider = this.getStorageProvider()
+        const testKey = '__zzz__'
+        provider.setItem(testKey, testKey)
+        provider.removeItem(testKey)
+        return true
+      }
+      return false
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.debug(
+        `Error when calling "isSupported" for key: ${this._storageKey}`,
+        error
+      )
+      return false
+    }
+  }
+
+  getValue(): ValueType | null {
+    try {
+      if (typeof window !== 'undefined') {
+        const provider = this.getStorageProvider()
+        const item = provider.getItem(this._storageKey)
+        return item ? (JSON.parse(item) as ValueType) : this.getDefaultValue()
+      }
+      return this.getDefaultValue()
+    } catch (error) {
+      console.error(
+        `Error in getValue Storage. Key: ${this._storageKey}`,
+        error
+      )
+      return this.getDefaultValue()
+    }
+  }
+
+  setValue(newValue: ValueType): void {
+    try {
+      if (typeof window !== 'undefined') {
+        const provider = this.getStorageProvider()
+        provider.setItem(this._storageKey, JSON.stringify(newValue))
+      }
+    } catch (error) {
+      console.error(
+        `Error in setValue Storage. Key: ${this._storageKey}`,
+        error
+      )
+    }
+  }
+
+  removeValue(): void {
+    try {
+      if (typeof window !== 'undefined') {
+        const provider = this.getStorageProvider()
+        provider.removeItem(this._storageKey)
+      }
+    } catch (error) {
+      console.error(
+        `Error in removeValue Storage. Key: ${this._storageKey}`,
+        error
+      )
+    }
+  }
+}
+
+export default WebStorage
+```

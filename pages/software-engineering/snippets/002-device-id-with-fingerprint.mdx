@@ -1,0 +1,53 @@
+# Device Id with FingerprintJS
+
+Using [FingerprintJS](https://fingerprintjs.github.io/fingerprintjs/) to generate a unique device id for the user.
+
+- Only load once per session, the instance will be saved in the window object.
+- Auto save the device id to the local storage.
+
+## Installation
+
+```bash copy
+npm i @fingerprintjs/fingerprintjs
+```
+
+## Load Fingerprint
+
+```typescript copy filename="fingerprint.tsx"
+import FingerprintJS, { type Agent } from '@fingerprintjs/fingerprintjs'
+
+import WebStorage from './WebStorage'
+
+declare const window: {
+  __fpjs: Agent | null
+} & Window
+
+// Visit: https://fingerprintjs.github.io/fingerprintjs/
+// To debug your visitor data
+const FINGERPRINT_KEY = '__deviceId'
+
+export const getDeviceIdFingerprint = async (): Promise<string> => {
+  const deviceId = await loadFingerprint()
+  return deviceId ?? ''
+}
+
+export const loadFingerprint = async () => {
+  if (!window.__fpjs) {
+    window.__fpjs = await FingerprintJS.load()
+    // eslint-disable-next-line no-console
+    console.debug('[FP] Device fingerprint was loaded!')
+  }
+
+  const storage = new WebStorage<string>(FINGERPRINT_KEY, '')
+  const oldVisitorId = storage.getValue()
+
+  if (!oldVisitorId) {
+    const { visitorId } = await window.__fpjs.get()
+    storage.setValue(visitorId)
+    return visitorId
+  } else {
+    return oldVisitorId
+  }
+}
+
+```
