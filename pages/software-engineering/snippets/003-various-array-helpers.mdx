@@ -1,0 +1,65 @@
+# Various Array Helpers
+
+## Generate range of numbers
+
+### Code
+
+```typescript copy
+export const range = (start, stop, step = 1) => {
+  return Array.from({ length: (stop - start) / step + 1 }, (_, i) => start + i * step)
+}
+```
+
+### Sample Usage
+
+```typescript copy
+range(1, 10) // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+## Chunking Array
+
+Split array into specified size of chunks, useful for creating client side pagination.
+
+### Code
+
+```typescript copy
+export const chunk = (arr, chunkSize) => {
+  return arr.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / chunkSize)
+
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = []
+    }
+
+    resultArray[chunkIndex].push(item)
+
+    return resultArray
+  }, [])
+}
+```
+
+
+## Get Unique Array By Item Key
+
+### Code
+
+```typescript copy
+export const getUniqueItemsByKey = (items, propName) => {
+  return items.filter(
+    (v, i, a) => a.findIndex((v2) => v2[propName] === v[propName]) === i
+  )
+}
+```
+
+### Test Scenario
+
+```typescript copy
+test('getUniqueItemsByKey', () => {
+  expect(
+    getUniqueItemsByKey(
+      [{ data: 1 }, { data: 2 }, { data: 3 }, { data: 1 }],
+      'data'
+    )
+  ).toEqual([{ data: 1 }, { data: 2 }, { data: 3 }])
+})
+```
