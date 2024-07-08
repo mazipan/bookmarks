@@ -1,0 +1,237 @@
+# 📺 Text Editor
+
+My Text Editor Configuration
+
+## Main Editor
+
+[Visual Studio Code](https://code.visualstudio.com/)
+
+## Themes
+
+[Night Owl by Sarah Drasner](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
+
+## Fonts
+
+- [Cascadia Code](https://github.com/microsoft/cascadia-code)
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+- [Fira Code](https://github.com/tonsky/FiraCode)
+- [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
+
+## Extensions
+
+- [vscode-icons](https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons)
+
+## Settings.json
+
+```json copy filename="settings.json"
+{
+  "[css]": {
+    "editor.defaultFormatter": "michelemelluso.code-beautifier"
+  },
+  "[git-rebase]": {
+    "workbench.editor.restoreViewState": false
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[njk]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "michelemelluso.code-beautifier"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.validate": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "Cascadia Code, JetBrains Mono, Fira Code, Source Code Pro, Hack, Consolas, Iosevka, Noto Sans Mono, 'Courier New', monospace",
+  "editor.fontLigatures": "'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'",
+  "editor.fontSize": 16,
+  "editor.fontWeight": "400",
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.letterSpacing": 0.5,
+  "editor.lineHeight": 20,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "Markup - Bold-Italic",
+        "scope": [
+          "markup.bold markup.italic string",
+          "markup.bold markup.italic",
+          "markup.italic markup.bold string",
+          "markup.italic markup.bold",
+          "markup.quote markup.bold string",
+          "markup.quote markup.bold"
+        ],
+        "settings": {
+          "fontStyle": "bold"
+        }
+      },
+      {
+        "scope": [
+          "comment",
+          "constant",
+          "entity.name.method.js",
+          "entity.name.type.class",
+          "entity.other.attribute-name",
+          "keyword",
+          "markup.italic",
+          "markup.quote",
+          "punctuation.definition.comment",
+          "source.js constant.other.object.key.js string.unquoted.label.js",
+          "storage.modifier",
+          "storage.type.class.js",
+          "support.function",
+          "tag.decorator.js entity.name.tag.js",
+          "tag.decorator.js punctuation.definition.tag.js",
+          "text.html.basic entity.other.attribute-name",
+          "text.html.basic entity.other.attribute-name.html",
+          "variable.language"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      }
+    ]
+  },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.wordWrap": "on",
+  "emmet.includeLanguages": {
+    "njk": "html"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "svelte",
+    "typescript",
+    "typescriptreact",
+    "yaml"
+  ],
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmUndo": "light",
+  "files.associations": {
+    "*.schema": "json",
+    "*.js": "javascript",
+    "*.jsx": "javascriptreact",
+    "*.njk": "html",
+    "*.ts": "typescript",
+    "*.tsx": "typescriptreact"
+  },
+  "files.autoGuessEncoding": true,
+  "files.trimTrailingWhitespace": true,
+  "git.enableSmartCommit": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "javascript.preferences.quoteStyle": "single",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "json.schemas": [
+
+  ],
+  "launch": {
+    "compounds": [],
+    "configurations": []
+  },
+  "playwright.reuseBrowser": false,
+  "playwright.showTrace": false,
+  "prettier.singleQuote": true,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "screencastMode.onlyKeyboardShortcuts": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "settingsSync.ignoredSettings": [],
+  "settingsSync.keybindingsPerPlatform": false,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "update.showReleaseNotes": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.closeWhenEmpty": true,
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "window.zoomLevel": 1,
+  "workbench.colorCustomizations": {
+    "[Night Owl]": {
+      "activityBar.background": "#000C1D",
+      "activityBar.border": "#102a44",
+      "editorGroup.border": "#102a44",
+      "sideBar.background": "#001122",
+      "sideBar.border": "#102a44",
+      "sideBar.foreground": "#8BADC1"
+    },
+    "[Night Owl (No Italics)]": {
+      "activityBar.background": "#000C1D",
+      "activityBar.border": "#102a44",
+      "editorGroup.border": "#102a44",
+      "sideBar.background": "#001122",
+      "sideBar.border": "#102a44",
+      "sideBar.foreground": "#8BADC1"
+    }
+  },
+  "workbench.colorTheme": "Night Owl",
+  "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.focusRecentEditorAfterClose": false,
+  "workbench.editor.restoreViewState": false,
+  "workbench.editorAssociations": {
+    "*.xlsx": "default"
+  },
+  "workbench.enableExperiments": false,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.preferredDarkColorTheme": "Night Owl",
+  "workbench.preferredLightColorTheme": "Night Owl Light",
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.tips.enabled": false,
+  "workbench.tree.indent": 4,
+  "workbench.view.alwaysShowHeaderActions": true,
+  "json.schemaDownload.enable": false
+}
+```
