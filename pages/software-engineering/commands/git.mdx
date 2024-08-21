@@ -1,0 +1,21 @@
+# 🔀 Git
+
+## Delete all branches except master/main
+
+Except `main`:
+
+```bash
+git branch | grep -v " main$" | xargs git branch -D
+```
+
+Except `master`:
+
+```bash
+git branch | grep -v " master$" | xargs git branch -D
+```
+
+## Create new tag for deployment
+
+```bash
+git tag release-$(date +"%Y%m%d-%H%M%S") && git push --tags -v
+```
