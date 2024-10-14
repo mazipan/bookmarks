@@ -1,0 +1,20 @@
+# ❇️ Getting Know the Submit Event
+
+The use case:
+
+- I want to know the submitter button because I have multiple buttons in the form. In `react-hook-form` the `handleSubmit` function will return the submit event.
+
+```typescript
+const onSubmit = (
+  data,
+  e: FormEvent<HTMLFormElement>
+) => {
+  const submitter = e?.nativeEvent?.submitter as HTMLButtonElement;
+  const actionName = submitter?.name || 'propose';
+
+  console.log('Submit action :::', actionName);
+};
+```
+
+- Thanks to Stackoverflow: https://stackoverflow.com/a/77356991/23420854
+- MDN: https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent

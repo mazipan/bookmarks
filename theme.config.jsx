@@ -1,7 +1,6 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
 
-const config: DocsThemeConfig = {
+const config = {
   logo: <strong>📍 by MZP</strong>,
   project: {
     link: 'https://github.com/mazipan',
@@ -26,8 +25,10 @@ const config: DocsThemeConfig = {
       </svg>
     )
   },
-  primaryHue: 98,
-  primarySaturation: 100,
+  color: {
+    hue: 98,
+    saturation: 100,
+  },
   docsRepositoryBase: 'https://github.com/mazipan/bookmarks',
   useNextSeoProps() {
     return {
