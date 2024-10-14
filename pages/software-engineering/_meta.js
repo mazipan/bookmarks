@@ -1,4 +1,4 @@
-{
+export default {
   "articles": "📖 Articles",
   "blogs": "📚 Blogs",
   "frontend": "🎨 Frontend",
