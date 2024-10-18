@@ -19,3 +19,13 @@ git branch | grep -v " master$" | xargs git branch -D
 ```bash
 git tag release-$(date +"%Y%m%d-%H%M%S") && git push --tags -v
 ```
+
+## Revert a file to a specific commit
+
+Basically by checkout the file from a specific commit
+
+```bash
+git checkout [commit-ref] -- [filename]
+```
+
+Reference: https://stackoverflow.com/questions/215718/how-can-i-reset-or-revert-a-file-to-a-specific-revision
