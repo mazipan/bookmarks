@@ -43,13 +43,16 @@ const config = {
     </>
   ),
   footer: {
-    component: (
-      <div className='nx-mx-auto nx-flex nx-h-[var(--nextra-navbar-height)] nx-max-w-[90rem] nx-items-center nx-justify-center nx-gap-1 nx-pl-[max(env(safe-area-inset-left),1.5rem)] nx-pr-[max(env(safe-area-inset-right),1.5rem)] nx-border-t'>
-        <span>📍 The Bookmarks by </span>
-        <a href="https://mazipan.space/" target='_blank' rel="noopener" className='nx-font-medium nx-text-gray-500 hover:nx-text-gray-900 dark:nx-text-gray-400 dark:hover:nx-text-gray-100 contrast-more:nx-text-gray-800 contrast-more:dark:nx-text-gray-50 nx-underline'>MZP</a>
-        <span>, since 2024</span>
-      </div>)
-  },
+    content: (
+      <span>
+        📍 The Bookmarks, © {new Date().getFullYear()},  by {' '}
+        <a href="https://mazipan.space" target="_blank">
+          MZP
+        </a>
+        .
+      </span>
+    )
+  }
 }
 
 export default config
