@@ -2,6 +2,8 @@
 
 My Text Editor Configuration
 
+![VSCode Snapshot](/images/vscode-snapshot.png)
+
 ## Main Editor
 
 [Visual Studio Code](https://code.visualstudio.com/)
@@ -34,60 +36,6 @@ My Text Editor Configuration
 
 ```json copy filename="settings.json"
 {
-  "[css]": {
-    "editor.defaultFormatter": "michelemelluso.code-beautifier"
-  },
-  "[git-rebase]": {
-    "workbench.editor.restoreViewState": false
-  },
-  "[graphql]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[njk]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[scss]": {
-    "editor.defaultFormatter": "michelemelluso.code-beautifier"
-  },
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "css.validate": false,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.accessibilitySupport": "off",
@@ -98,8 +46,8 @@ My Text Editor Configuration
   "editor.fontLigatures": "'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'",
   "editor.fontSize": 16,
   "editor.fontWeight": "400",
-  "editor.formatOnPaste": false,
-  "editor.formatOnSave": false,
+  // "editor.formatOnPaste": false,
+  // "editor.formatOnSave": false,
   "editor.letterSpacing": 0.5,
   "editor.lineHeight": 20,
   "editor.quickSuggestions": {
@@ -179,9 +127,7 @@ My Text Editor Configuration
   "github.copilot.editor.enableAutoCompletions": true,
   "javascript.preferences.quoteStyle": "single",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "json.schemas": [
-
-  ],
+  "json.schemas": [],
   "launch": {
     "compounds": [],
     "configurations": []
@@ -224,6 +170,10 @@ My Text Editor Configuration
   },
   "workbench.colorTheme": "Night Owl",
   "workbench.editor.closeOnFileDelete": true,
+  "workbench.editor.customLabels.patterns": {
+    "**/**.ts": "${dirname}/${filename}",
+    "**/**.tsx": "${dirname}/${filename}"
+  },
   "workbench.editor.decorations.badges": true,
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromCodeNavigation": true,
@@ -241,6 +191,57 @@ My Text Editor Configuration
   "workbench.tips.enabled": false,
   "workbench.tree.indent": 4,
   "workbench.view.alwaysShowHeaderActions": true,
-  "json.schemaDownload.enable": false
+  "json.schemaDownload.enable": false,
+
+  // -- Activate it based on the needs
+
+  // "[css]": {
+  //   "editor.defaultFormatter": "michelemelluso.code-beautifier"
+  // },
+  // "[graphql]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[html]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[javascript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[javascriptreact]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[json]": {
+  //   "editor.defaultFormatter": "vscode.json-language-features"
+  // },
+  // "[less]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[markdown]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[njk]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[scss]": {
+  //   "editor.defaultFormatter": "michelemelluso.code-beautifier"
+  // },
+  // "[svelte]": {
+  //   "editor.defaultFormatter": "svelte.svelte-vscode"
+  // },
+  // "[typescript]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[typescriptreact]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[vue]": {
+  //   "editor.defaultFormatter": "octref.vetur"
+  // },
+  // "[yaml]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  // "[terraform]": {
+  //   "editor.defaultFormatter": "hashicorp.terraform"
+  // }
 }
 ```
